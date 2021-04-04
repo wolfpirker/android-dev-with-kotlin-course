@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="@dimen/margin_sixteen"
+        android:layout_marginEnd="@dimen/margin_sixteen"
         android:layout_marginBottom="@dimen/margin_sixteen"
         android:text="@string/str_from_whom"
         android:textColor="@color/black"

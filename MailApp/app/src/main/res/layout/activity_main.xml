@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:autofillHints="@string/str_content"
+    android:orientation="vertical"
+    android:weightSum="4"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="title"
+        android:hint="@string/str_title"
+        android:inputType="text"
+        style="@style/edit_text_styling" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no"
+        android:hint="@string/str_to"
+        android:inputType="textEmailAddress"
+        android:importantForAccessibility="no"
+        style="@style/edit_text_styling" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:importantForAutofill="no"
+        android:hint="@string/str_content"
+        android:gravity="top"
+        android:layout_weight="3"
+        android:importantForAccessibility="no"
+        android:inputType="text"
+        style="@style/edit_text_styling"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_send" />
+
+</LinearLayout>
