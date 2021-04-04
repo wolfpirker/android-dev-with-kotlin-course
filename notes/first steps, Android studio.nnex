@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE NixNote-Export>
+<nixnote-export version="2" exportType="export" application="NixNote" applicationVersion="2.x">
+    <Note>
+        <Guid>2f1b31ed-be48-49fa-9aec-cdf5108c6297</Guid>
+        <Title>First Steps AndroidStudio</Title>
+        <Content><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-note SYSTEM 'http://xml.evernote.com/pub/enml2.dtd'><en-note style=
+"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;">
+
+<ul>
+<li>install Android Studio and create your first project<br /></li>
+<li>AVD Manager</li>
+<ul>
+<li>used for creating and selecting a virtual device</li>
+<li>select system image</li>
+<ul>
+<li>e.g. in the course it is Q (API level 29, since it is new and
+stable version)</li>
+</ul>
+</ul>
+<li>for simulation kvm might be required on Linux</li>
+<ul>
+<li>has to be enabled in BIOS</li>
+<li>some packages are required on linux, qemu etc.</li>
+<li>command to query kvm support</li>
+<ul>
+<li>dmesg | grep -i kvm</li>
+</ul>
+</ul>
+<li>when there is issues running the emulator on Linux</li>
+<ul>
+<li>cd to&nbsp;/home/wolfi/Android/Sdk/tools/</li>
+<li>set variable&nbsp;
+<ul>
+<li>export ANDROID_EMULATOR_DEBUG=1</li>
+</ul>
+</li>
+<li>run emulator</li>
+<ul>
+<li>/emulator -avd Pixel_3a_API_30_x86</li>
+</ul>
+<li><br /></li>
+</ul>
+<li>perhaps better success using flatpak "Android-studio" on MX
+Linux?</li>
+</ul>
+<div><br /></div>
+<div>
+<ul>
+<li>/usr/bin/flatpak run --branch=stable --arch=x86_64
+--command=android-studio com.google.AndroidStudio<br /></li>
+<li>better use snapd perhaps?</li>
+<ul>
+<li><a href="https://snapcraft.io/install/android-studio/debian"
+title=
+"https://snapcraft.io/install/android-studio/debian">https://snapcraft.io/install/android-studio/debian</a><br />
+</li>
+</ul>
+<li><br /></li>
+</ul>
+<div><br /></div>
+</div>
+<div><br /></div>
+<div>for KVM acceleration follow:</div>
+<div>
+<ul>
+<li><a href=
+"https://developer.android.com/studio/run/emulator-acceleration?utm_source=android-studio#vm-linux"
+title=
+"https://developer.android.com/studio/run/emulator-acceleration?utm_source=android-studio#vm-linux">
+https://developer.android.com/studio/run/emulator-acceleration?utm_source=android-studio#vm-linux</a><br />
+</li>
+</ul>
+<div><br /></div>
+</div>
+<div>Note: simulator needs a lot of free space 7+ GB</div>
+<div>
+<ul>
+<li>tricky to turn on developer mode on real phone</li>
+<ul>
+<li>tap 7 times on build number in about phone ("Über das
+Telefon")</li>
+</ul>
+<li>System &amp; Aktualisierung should have now developer
+options</li>
+</ul>
+<div>To make it possible under a linux environment follow:</div>
+</div>
+<div>
+<ul>
+<li><a href="https://developer.android.com/studio/run/device"
+title="https://developer.android.com/studio/run/device">https://developer.android.com/studio/run/device</a><br />
+</li>
+<ul>
+<li>add user to plug</li>
+</ul>
+</ul>
+</div>
+<div><br /></div>
+<div><br /></div>
+</en-note>]]></Content>
+        <ContentLength>2628</ContentLength>
+        <Created>1617380774250</Created>
+        <Updated>1617391710219</Updated>
+        <Active>true</Active>
+        <UpdateSequenceNumber>0</UpdateSequenceNumber>
+        <NotebookGuid>e7825024-90a1-491f-85a6-e1ee07d7da5f</NotebookGuid>
+        <Attributes>
+            <Author>wolfi</Author>
+        </Attributes>
+        <Dirty>true</Dirty>
+    </Note>
+</nixnote-export>
