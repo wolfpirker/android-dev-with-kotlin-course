@@ -7,5 +7,6 @@
     <string name="str_five">5</string>
     <string name="str_six">6</string>
     <string name="str_roll">Roll</string>
+    <string name="str_image_desc">dice one</string>
 
 </resources>

@@ -7,15 +7,29 @@
     android:background="@color/color_aquamarine"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_view_random_number"
+<ImageView
+    android:id="@+id/dice_one"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:contentDescription="@string/str_image_desc"
+    android:layout_centerInParent="true"
+    android:layout_alignParentLeft="true"
+    android:layout_marginStart="@dimen/margin_eight"
+    android:src="@drawable/dice_empty"
+    tools:src="@drawable/dice5"
+    />
+
+    <ImageView
+        android:id="@+id/dice_two"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/str_image_desc"
         android:layout_centerInParent="true"
-
-        android:text="@string/str_one"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="@dimen/margin_eight"
+        android:src="@drawable/dice_empty"
+        tools:src="@drawable/dice2"
+        />
 
     <Button
         android:id="@+id/btn_roll_dice"
