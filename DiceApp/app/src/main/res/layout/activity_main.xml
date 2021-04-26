@@ -7,29 +7,40 @@
     android:background="@color/color_aquamarine"
     tools:context=".MainActivity">
 
-<ImageView
-    android:id="@+id/dice_one"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:contentDescription="@string/str_image_desc"
-    android:layout_centerInParent="true"
-    android:layout_alignParentLeft="true"
-    android:layout_marginStart="@dimen/margin_eight"
-    android:src="@drawable/dice_empty"
-    tools:src="@drawable/dice5"
-    />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_centerInParent="true">
+    <ImageView
+        android:id="@+id/dice_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_eight"
+        android:contentDescription="@string/str_image_desc"
+        android:layout_centerInParent="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/dice_empty"
+        tools:src="@drawable/dice5"
+        android:layout_weight="1"
+        />
 
     <ImageView
         android:id="@+id/dice_two"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="@dimen/padding_eight"
         android:contentDescription="@string/str_image_desc"
         android:layout_centerInParent="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="@dimen/margin_eight"
+
         android:src="@drawable/dice_empty"
         tools:src="@drawable/dice2"
+        android:layout_weight="1"
         />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btn_roll_dice"
