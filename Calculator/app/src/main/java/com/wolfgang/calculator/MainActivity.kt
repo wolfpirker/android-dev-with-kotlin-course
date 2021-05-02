@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
 
         val btn = view as Button
         var value : String = ""
-        var result : Double = 0.0
 
         editText.text?.let{
             value = it.toString()
@@ -34,56 +33,61 @@ class MainActivity : AppCompatActivity() {
 
         when (view.id){
             R.id.button_division -> {
-                termPrev = value.toDouble()
                 operator = '/'
-                editText.setText("")
+                calcOperatorClicked(value)
+
             }
             R.id.button_minus -> {
-                termPrev = value.toDouble()
                 operator = '-'
-                editText.setText("")
+                calcOperatorClicked(value)
             }
             R.id.button_plus -> {
-                termPrev = value.toDouble()
                 operator = '+'
-                editText.setText("")
+                calcOperatorClicked(value)
             }
             R.id.button_equal-> {
-                if (operator == '/'){
-                    if (value.toDouble() != 0.0){
-                        result = termPrev/value.toDouble()
-                        editText.setText(result.toString())
-                    }
-                    else{
-                        editText.setText("NaN")
-                    }
-                }
-                else if (operator == '+'){
-                    result = termPrev+value.toDouble()
-                    editText.setText(result.toString())
-                }
-                else if (operator == '-'){
-                    result = termPrev-value.toDouble()
-                    editText.setText(result.toString())
-                }
+                equalsClicked(value)
             }
             R.id.button_c -> {
                 editText.setText("")
             }
             else -> {
-                editText.setText(editText.text.toString() + btn.text)
-            }
-
-        }
-
-        /* lecture #80: so much typing...
-        when (view.id) {
-            R.id.button_one -> {
-                val number = editText.text.toString() + "1"
-                editText.setText(number)
+                numberClicked(btn.text.toString())
             }
         }
-        */
+    }
 
+    private fun equalsClicked(value: String){
+        var result : Double = 0.0
+
+        if (operator == '/'){
+            if (value.toDouble() != 0.0){
+                result = termPrev/value.toDouble()
+                editText.setText(result.toString())
+            }
+            else{
+                editText.setText("NaN")
+            }
+        }
+        else if (operator == '+'){
+            result = termPrev+value.toDouble()
+            editText.setText(result.toString())
+        }
+        else if (operator == '-'){
+            result = termPrev-value.toDouble()
+            editText.setText(result.toString())
+        }
+    }
+
+    private fun numberClicked(numberClicked : String){
+        val number = editText.text.toString() + numberClicked.toString()
+        editText.setText(number)
+    }
+
+    private fun calcOperatorClicked(value: String){
+        // Note: weakness: works only with one term - so equal sign has to pressed
+        // after using only one calculation (+,/,-) operator
+        termPrev = value.toDouble()
+        editText.setText("")
     }
 }
