@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GuessNumber</string>
+    <string name="str_reset">Reset</string>
+    <string name="str_arrow_up_desc">press_arrow_down</string>
+    <string name="str_arrow_down_desc">press arrow down</string>
+    <string name="str_arrow_success_desc">App has guessed the number</string>
+</resources>
