@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BMI</string>
+    <string name="str_body_description_healthy">normal weight</string>
+    <string name="edit_text_hint_weight">enter your weight (kg)</string>
+    <string name="edit_text_hint_length">enter your tallness (m)</string>
+    <string name="calculate">Calculate</string>
+</resources>
