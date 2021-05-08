@@ -115,7 +115,8 @@ bar</li>
 </ul>
 </ul>
 </ul>
-<div>#109 Using BaseAdapter to create a custom adapter</div>
+<div>#109 Using BaseAdapter to create a custom adapter and
+#110</div>
 </div>
 <div>
 <div>
@@ -202,16 +203,40 @@ parent -&gt; set it to true then</li>
 <li>it means that we should optimize our function otherwise there
 is lag in our application</li>
 </ul>
-<li><br /></li>
 </ul>
+</ul>
+<div>#111 play audio files</div>
+</div>
+<div>
+<ul>
+<li>for the files create a new resource folder, as resource type
+"raw"</li>
+<li>play the files with MediaPlayer object, it is used like
+this:</li>
+<ul>
+<li>
+<pre style=
+"background-color:#2b2b2b;color:#a9b7c6;font-family:'DejaVu Sans Mono',monospace;font-size:9,0pt;">
+audioImageView.setOnClickListener <span style=
+"font-weight:bold;">{<br /></span><span style=
+"font-weight:bold;">    </span><span style=
+"color:#cc7832;">val </span>mediaPlayer = MediaPlayer.create(<br />        context<span style="color:#cc7832;">,<br /></span><span style="color:#cc7832;">        </span><span style="background-color:#223c23;">context</span>.<span style="color:#9876aa;font-style:italic;">resources</span>.getIdentifier(<br />            item.<span style="color:#9876aa;">audioFileName</span><span style="color:#cc7832;">, </span><span style="color:#6a8759;">"raw"</span><span style="color:#cc7832;">, </span><span style="background-color:#223c23;">context</span>.<span style="color:#9876aa;font-style:italic;">packageName</span>)<br />    )<br />    mediaPlayer.start()<br /><span style="font-weight:bold;">}</span></pre></li>
+</ul>
+<li>code in the CustomAdapter code for method getView()</li>
+</ul>
+<div>#112 optimize our getView method</div>
+</div>
+<div>
+<ul>
+<li><br /></li>
 </ul>
 </div>
 </div>
 </div>
 </en-note>]]></Content>
-        <ContentLength>7138</ContentLength>
+        <ContentLength>8456</ContentLength>
         <Created>1620398029731</Created>
-        <Updated>1620507730060</Updated>
+        <Updated>1620513935128</Updated>
         <Active>true</Active>
         <UpdateSequenceNumber>0</UpdateSequenceNumber>
         <NotebookGuid>e7825024-90a1-491f-85a6-e1ee07d7da5f</NotebookGuid>
