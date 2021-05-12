@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">NumberListApp</string>
     <string name="image_view_desc">play audio</string>
+    <string name="str_mediaplayer_created">create new instance of Mediaplayer</string>
+    <string name="str_mediaplayer_release">instance of Mediaplayer is released</string>
 </resources>

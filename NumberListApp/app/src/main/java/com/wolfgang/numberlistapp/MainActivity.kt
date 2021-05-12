@@ -3,6 +3,7 @@ package com.wolfgang.numberlistapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.wolfgang.numberlistapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +59,8 @@ class MainActivity : AppCompatActivity() {
 
         val customAdapter : CustomAdapter = CustomAdapter(arrayList)
         binding.listView.adapter = customAdapter
+
+        //Toast.makeText(this, resources.getText(R.string.str_mediaplayer_created), Toast.LENGTH_SHORT).show()
 
     }
 }
