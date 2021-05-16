@@ -7,6 +7,8 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.wolfgang.newsapp.databinding.ActivityMainBinding
+import org.json.JSONArray
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -20,25 +22,19 @@ class MainActivity : AppCompatActivity() {
 
         val queue = Volley.newRequestQueue(this)
         binding.buttonSearch.setOnClickListener {
-            val word = binding.textSearch.text
-            val url = getUrl()
+            val page = 1
+            val url = getUrl(page)
             val stringRequest = StringRequest(
                 Request.Method.GET, url,
-                {
-                    response ->
-                    response
-                    /*
+                { response ->
                     try {
                         extractDefinitionFromJson(response)
-                    }catch (exception : Exception){
+                    } catch (exception: Exception) {
                         exception.printStackTrace()
                     }
-                     */
                 },
-                {
-                    error ->
-                    error
-                    //Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show()
+                { error ->
+                    Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show()
                 }
             )
             queue.add(stringRequest)
@@ -46,12 +42,32 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun getUrl() : String{
+    private fun getUrl(page: Int): String {
         val word = binding.textSearch.text
         val apiKey = "3fc755a7-3c6d-48ad-8faa-e7e22e433479"
-        val url = //"https://content.guardianapis.com/search?api-key=3fc755a7-3c6d-48ad-8faa-e7e22e433479"
-            "https://content.guardianapis.com/$word?api-key=$apiKey"
+        val url =
+            //"https://content.guardianapis.com/search?page=1&page-size=10&q=football&api-key=3fc755a7-3c6d-48ad-8faa-e7e22e433479"
+            "https://content.guardianapis.com/search?page=$page&page-size=10&q=$word&api-key=$apiKey"
 
         return url
+    }
+
+    private fun extractDefinitionFromJson(response: String) {
+        val jsonResponseBody = JSONObject(response).getJSONObject("response")
+        val results = jsonResponseBody.getJSONArray("results")
+
+        var list = mutableListOf<Data>()
+
+        for (i in 0..9){
+            val item = results.getJSONObject(i)
+            val webTitle = item.getString("webTitle")
+            val webUrl = item.getString("webUrl")
+            val data = Data(webTitle, webUrl)
+            list.add(data)
+
+        }
+
+        val customAdapter : CustomAdapter = CustomAdapter(list)
+        binding.listView.adapter = customAdapter
     }
 }

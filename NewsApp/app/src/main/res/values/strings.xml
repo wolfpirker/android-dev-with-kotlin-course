@@ -2,4 +2,6 @@
     <string name="app_name">NewsApp</string>
     <string name="str_search">Search</string>
     <string name="str_more">Load More</string>
+    <string name="image_view_desc">open in browser</string>
+    <string name="str_tools_web_title">sample title</string>
 </resources>
