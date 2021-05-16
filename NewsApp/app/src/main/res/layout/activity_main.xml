@@ -25,6 +25,7 @@
             android:layout_width="256dp"
             android:layout_height="36dp"
             android:layout_margin="@dimen/margin_eight"
+            android:inputType="text"
             android:background="@drawable/edit_text_border" />
 
     </LinearLayout>

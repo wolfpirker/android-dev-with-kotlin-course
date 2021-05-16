@@ -7,11 +7,11 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.wolfgang.newsapp.databinding.ActivityMainBinding
-import org.json.JSONArray
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    var pageNumber = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -22,32 +22,22 @@ class MainActivity : AppCompatActivity() {
 
         val queue = Volley.newRequestQueue(this)
         binding.buttonSearch.setOnClickListener {
-            val page = 1
-            val url = getUrl(page)
-            val stringRequest = StringRequest(
-                Request.Method.GET, url,
-                { response ->
-                    try {
-                        extractDefinitionFromJson(response)
-                    } catch (exception: Exception) {
-                        exception.printStackTrace()
-                    }
-                },
-                { error ->
-                    Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show()
-                }
-            )
-            queue.add(stringRequest)
+            sendRequest()
+        }
+
+        binding.buttonMore.setOnClickListener {
+            pageNumber += 1
+            sendRequest()
         }
 
     }
 
-    private fun getUrl(page: Int): String {
+    private fun getUrl(): String {
         val word = binding.textSearch.text
         val apiKey = "3fc755a7-3c6d-48ad-8faa-e7e22e433479"
         val url =
             //"https://content.guardianapis.com/search?page=1&page-size=10&q=football&api-key=3fc755a7-3c6d-48ad-8faa-e7e22e433479"
-            "https://content.guardianapis.com/search?page=$page&page-size=10&q=$word&api-key=$apiKey"
+            "https://content.guardianapis.com/search?page=$pageNumber&page-size=10&q=$word&api-key=$apiKey"
 
         return url
     }
@@ -58,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         var list = mutableListOf<Data>()
 
-        for (i in 0..9){
+        for (i in 0..9) {
             val item = results.getJSONObject(i)
             val webTitle = item.getString("webTitle")
             val webUrl = item.getString("webUrl")
@@ -67,7 +57,27 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        val customAdapter : CustomAdapter = CustomAdapter(list)
+        val customAdapter: CustomAdapter = CustomAdapter(list)
         binding.listView.adapter = customAdapter
+    }
+
+    private fun sendRequest() {
+
+        val url = getUrl()
+        val queue = Volley.newRequestQueue(this)
+
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            { response ->
+                try {
+                    extractDefinitionFromJson(response)
+                } catch (exception: Exception) {
+                    exception.printStackTrace()
+                }
+            },
+            { error ->
+                Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show()
+            })
+
+        queue.add(stringRequest)
     }
 }
