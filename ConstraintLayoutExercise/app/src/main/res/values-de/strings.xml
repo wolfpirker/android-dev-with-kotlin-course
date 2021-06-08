@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ConstraintLayoutExercise</string>
+    <string name="button1">Button</string>
+    <string name="a_star">ein Stern</string>
+    <string name="str_country_name">Deutschland</string>
+    <string name="str_location_text_view">Ort</string>
+    <string name="str_first_edit_text_hint">dein Ort</string>
+    <string name="str_text_view_town">Stadt</string>
+    <string name="str_edit_text_town">deine Stadt</string>
+    <string name="str_button_cancel">Abbrechen</string>
+    <string name="str_button_confirm">bestätigen</string>
+    <string name="str_image_view_description">Beschreibung</string>
+    <string name="str_image_view_two_description">Beschreibung 2</string>
+    <string name="str_about">Germany is a Western European country with a landscape of forests, rivers, mountain ranges and North Sea beaches. It has over 2 millennia of history. Berlin, its capital, is home to art and nightlife scenes, the Brandenburg Gate and many sites relating to WWII. Munich is known for its Oktoberfest and beer halls, including the 16th-century Hofbräuhaus. Frankfurt, with its skyscrapers, houses the European Central Bank.</string>
+    <string name="germany">Deutschland</string>
+
+</resources>
