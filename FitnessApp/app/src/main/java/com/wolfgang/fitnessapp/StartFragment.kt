@@ -5,12 +5,8 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Button
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -31,8 +27,19 @@ class StartFragment : Fragment() {
             Navigation.createNavigateOnClickListener(R.id.action_startFragment_to_exerciseFragment)
         )
 
+
         setHasOptionsMenu(true)
 
         return v
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.overflow_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item!!,requireView().findNavController()) ||
+                super.onOptionsItemSelected(item)
     }
 }

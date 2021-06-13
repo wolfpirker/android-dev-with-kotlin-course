@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import pl.droidsonroids.gif.GifImageView
 
 class ExerciseFragment : Fragment() {
@@ -56,11 +58,15 @@ class ExerciseFragment : Fragment() {
             if (exerciseIndex < exerciseSize) {
                 currentExercise = exercises[exerciseIndex]
                 setExercise()
+            }else{
+                view.findNavController().navigate(R.id.action_exerciseFragment_to_wellDoneFragment2)
             }
-            //}else{
-            //    view.findNavController().navigate(R.id.action_exerciseFragment_to_wellDoneFragment)
-            //}
         }
+
+        exitButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_exerciseFragment_to_tryAgainFragment)
+        )
+
 
         return v
     }
